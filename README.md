@@ -1,2 +1,3 @@
 # CRUDApp
-basic CRUD app
+basic CRUD app for guitars 
+
