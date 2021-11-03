@@ -1,0 +1,31 @@
+create database if not exists guitars;
+
+use guitars;
+
+drop table if exists colors;
+drop table if exists model;
+
+create table model (
+	serial_id int(20) not null auto_increment,
+	brand varchar(20) not null,
+    price double(10, 2) not null,
+	primary key (serial_id)
+    );
+
+create table colors (
+	color_id int(4) not null auto_increment,
+    serial_id int(20) not null,
+	color_name varchar(20) not null,
+	primary key(color_id),
+	foreign key (serial_id) references model (serial_id)
+    -- CONSTRAINT fk_project FOREIGN KEY (project_id)
+    --    REFERENCES projects (project_id)
+);  
+
+Insert into model(brand, price) values  ("Fender", "949.99");
+Insert into model(brand, price) values  ("ESP", "1224.99");
+Insert into model(brand, price) values  ("Jackson", "850.00");
+
+Insert into colors(serial_id, color_name) values  ("1", "Black");
+Insert into colors(serial_id, color_name) values  ("2", "Red");
+Insert into colors(serial_id, color_name) values  ("3", "Blue");
